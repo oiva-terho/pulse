@@ -1,0 +1,43 @@
+{
+  "name": "pulse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "oiva-terho",
+  "type": "module",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-size": "^4.0.1",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.54.4"
+  },
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
+  }
+}
