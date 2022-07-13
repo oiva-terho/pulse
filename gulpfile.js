@@ -29,7 +29,7 @@ gulp.task('html', function () {
 const sass = gulpSass(dartSass);
 gulp.task('sass', function () {
   return gulp
-    .src('src/sass/**/*.{sass,scss}', { sourcemaps: true })
+    .src('src/sass/**/*.scss', { sourcemaps: true })
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(csso())
@@ -68,7 +68,7 @@ gulp.task('connect', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['src/*.html'], gulp.series('html'));
-  gulp.watch(['src/sass/**/*.{sass, scss}'], gulp.series('sass'));
+  gulp.watch(['src/sass/**/*.scss'], gulp.series('sass'));
   gulp.watch(['src/js/*.js'], gulp.series('js'));
 });
 
