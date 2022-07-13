@@ -25,6 +25,15 @@
             text-decoration: underline;
         }
     }
+    #cup:hover {
+        animation: cupshake 1.1s ease infinite; 
+    }
+    #heart:hover {
+        animation: heartbeat 1.1s ease infinite;
+    }
+    #shoe:hover {
+        animation: jump 1.1s ease infinite;
+    }
 
     &__title {
         margin: 35px 0 20px 0;
