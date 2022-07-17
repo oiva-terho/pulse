@@ -20,9 +20,9 @@
       sizes="16x16"
       href="/public/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/public/css/bootstrap-reboot.min.css" />
-    <script defer src="/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css" />
+    <script defer src="/js/script.js"></script>
   </head>
   <body>
     <section class="promo" id="top">
@@ -53,11 +53,15 @@
               Время подбора: 10 минут
             </div>
             <div class="promo__icon">
-              <img src="/public/icons/main_screen/hand-cart.png" alt="hand-chart" />
+              <img
+                src="/public/icons/main_screen/hand-cart.png"
+                alt="hand-chart" />
               Бесплатная доставка
             </div>
             <div class="promo__icon">
-              <img src="/public/icons/main_screen/messages.png" alt="messages" />
+              <img
+                src="/public/icons/main_screen/messages.png"
+                alt="messages" />
               Ответим на все вопросы
             </div>
           </div>
@@ -73,37 +77,97 @@
     </section>
     <section class="advantages">
       <div class="container">
-          <h2 class="advantages__header">Наши преимущества</h2>
-          <div class="advantages__wrapper">
-              <div class="advantages__item">
-                  <img src="/public/icons/advantages/cup.png" alt="cup" id="cup">
-                  <h3 class="advantages__title">Делимся опытом</h3>
-                  Наши сотрудники всегда готовы поделиться своим опытом, <br>так как сами бегают полумарафоны, переплыли Босфор, готовятся к соревнованиям по триатлону!
-              </div>
-              <div class="advantages__item">
-                  <img src="/public/icons/advantages/heart.png" alt="heart" id="heart">
-                  <h3 class="advantages__title">Заботимся о здоровье</h3>
-                  Мы работаем для того, <br>чтобы Ваши занятия спортом шли на пользу Вашему здоровью и были в радость Вам и Вашим близким!
-              </div>
-              <div class="advantages__item">
-                  <img src="/public/icons/advantages/shoe.png" alt="shoe" id="shoe">
-                  <h3 class="advantages__title">Учим бегать</h3>
-                  Помогаем с обучением <br>правильной технике бега! <br>Дружим с крупнейшей школой бега в России - <a href="#">I LOVE RUNNING.</a>
-              </div>
+        <h2 class="advantages__header">Наши преимущества</h2>
+        <div class="advantages__wrapper">
+          <div class="advantages__item">
+            <img src="/public/icons/advantages/cup.png" alt="cup" id="cup" />
+            <h3 class="advantages__title">Делимся опытом</h3>
+            Наши сотрудники всегда готовы поделиться своим опытом, <br />так как
+            сами бегают полумарафоны, переплыли Босфор, готовятся к
+            соревнованиям по триатлону!
           </div>
+          <div class="advantages__item">
+            <img
+              src="/public/icons/advantages/heart.png"
+              alt="heart"
+              id="heart" />
+            <h3 class="advantages__title">Заботимся о здоровье</h3>
+            Мы работаем для того, <br />чтобы Ваши занятия спортом шли на пользу
+            Вашему здоровью и были в радость Вам и Вашим близким!
+          </div>
+          <div class="advantages__item">
+            <img src="/public/icons/advantages/shoe.png" alt="shoe" id="shoe" />
+            <h3 class="advantages__title">Учим бегать</h3>
+            Помогаем с обучением <br />правильной технике бега! <br />Дружим с
+            крупнейшей школой бега в России - <a href="#">I LOVE RUNNING.</a>
+          </div>
+        </div>
       </div>
-  </section>
-  <section class="consultation">
-    <div class="container">
-        <h2 class="consultation__header">Получите бесплатную консультацию <br>по подбору пульсометра</h2>
-        <h3 class="consultation__subheader">Просто заполните форму заявки <br>и мы перезвоним вам в течении 10 минут</h3>
+    </section>
+    <section class="consultation">
+      <div class="container">
+        <h2 class="consultation__header">
+          Получите бесплатную консультацию <br />по подбору пульсометра
+        </h2>
+        <h3 class="consultation__subheader">
+          Просто заполните форму заявки <br />и мы перезвоним вам в течении 10
+          минут
+        </h3>
         <form class="feed-form" id="consultation-form" action="#">
-            <input name="name" type="text" placeholder="Ваше имя">
-            <input name="phone" placeholder="Ваш телефон">
-            <input name="email" type="email" placeholder="Ваш E-mail">
-            <button class="button button_submit">Заказать консультацию</button>
+          <input name="name" type="text" placeholder="Ваше имя" />
+          <input name="phone" placeholder="Ваш телефон" />
+          <input name="email" type="email" placeholder="Ваш E-mail" />
+          <button class="button button_submit">Заказать консультацию</button>
         </form>
-    </div>
-  </section>
+      </div>
+    </section>
+    <section class="carousel">
+      <div class="container">
+        <div class="carousel__inner">
+          <s id="s1"></s>
+          <s id="s2"></s>
+          <s id="s3"></s>
+
+          <div class="carousel__slider">
+            <div><img src="/public/img/slide_1.jpg" alt="slide" /></div>
+            <div><img src="/public/img/slide_2.jpg" alt="slide" /></div>
+            <div><img src="/public/img/slide_3.jpg" alt="slide" /></div>
+          </div>
+
+          <div class="carousel__prevNext">
+            <div>
+              <a class="carousel__prevNext-prev" href="#s3">
+                <img src="/public/icons/left.svg" />
+              </a>
+              <a class="carousel__prevNext-next" href="#s2">
+                <img src="/public/icons/right.svg" />
+              </a>
+            </div>
+            <div>
+              <a class="carousel__prevNext-prev" href="#s1">
+                <img src="/public/icons/left.svg" />
+              </a>
+              <a class="carousel__prevNext-next" href="#s3">
+                <img src="/public/icons/right.svg" />
+              </a>
+            </div>
+            <div>
+              <a class="carousel__prevNext-prev" href="#s2">
+                <img src="/public/icons/left.svg" />
+              </a>
+              <a class="carousel__prevNext-next" href="#s1">
+                <img src="/public/icons/right.svg" />
+              </a>
+            </div>
+          </div>
+
+          <div class="carousel__bullets">
+            <a href="#s1"></a>
+            <a href="#s2"></a>
+            <a href="#s3"></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

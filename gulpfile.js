@@ -34,8 +34,15 @@ gulp.task('sass', function () {
     .pipe(autoprefixer())
     .pipe(csso())
     .pipe(size({ title: 'style.css' }))
-    .pipe(gulp.dest('dist', { sourcemaps: true }))
+    .pipe(gulp.dest('dist/css', { sourcemaps: true }))
     .pipe(connect.reload())
+});
+
+// css copy task
+gulp.task('css', function () {
+  return gulp
+    .src('src/css/*.css')
+    .pipe(gulp.dest('dist/css'))
 });
 
 // JavaScript task
@@ -44,7 +51,7 @@ gulp.task('js', function () {
     .src('src/js/*.js')
     .pipe(GulpUglify())
     .pipe(size({ title: 'script.js' }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(connect.reload())
 });
 
@@ -73,7 +80,7 @@ gulp.task('watch', function () {
 });
 
 // Build
-const build = gulp.series(clear, gulp.parallel('html', 'sass', 'js', 'assets'));
+const build = gulp.series(clear, gulp.parallel('html', 'css', 'sass', 'js', 'assets'));
 
 const dev = gulp.series(build, gulp.parallel('connect', 'watch'));
 
