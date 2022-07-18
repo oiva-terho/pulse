@@ -9,8 +9,12 @@
     25%, 35%, 45% { transform: rotate(5deg); }
 }
 @keyframes jump {
-    from, to {transform: translate(0, 0) scaleY(1) rotate(0);}
-    60% {transform: translate(0, -20px) scaleY(1.1) rotate(-30deg);}
-    70% {transform: translate(0, 5px) scaleY(0.9) rotate(-10deg);}
-    80% {transform: translate(0, 0) scaleY(1.1) rotate(0);}
+    from, to { transform: translate(0, 0) scaleY(1) rotate(0); }
+    60% { transform: translate(0, -20px) scaleY(1.1) rotate(-30deg); }
+    70% { transform: translate(0, 5px) scaleY(0.9) rotate(-10deg); }
+    80% { transform: translate(0, 0) scaleY(1.1) rotate(0); }
 }
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }

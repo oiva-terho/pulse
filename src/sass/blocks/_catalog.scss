@@ -1,0 +1,70 @@
+.catalog {
+  padding-bottom: 100px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__header {
+    font-weight: 400;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &__radio {
+    display: none;
+  }
+  &__tabs {
+    margin-top: 46px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  &__tab {
+    cursor: pointer;
+    width: 222px;
+    height: 52px;
+    background: rgba(0, 0, 0, 0.0001);
+    border: 2px solid #D0D0D0;
+    transform: skewX(-20deg);
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 48px;
+    color: #6B6B6B;
+    text-transform: uppercase;
+    margin: 0 5px;
+    transition: 0.5s all;
+    &:hover {
+      border: 2px solid #fff;
+      box-shadow: 0 0 8px 3px $main_color;
+    }
+    div {
+        transform: skewX(20deg);
+    }
+  }
+  &__panels {
+    overflow: hidden;
+    margin-top: 60px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__panel {
+    display: none;
+    animation: fadein 0.8s;
+  }
+  #one:checked ~ .catalog__panels #one-panel,
+  #two:checked ~ .catalog__panels #two-panel,
+  #three:checked ~ .catalog__panels #three-panel {
+    display: flex;
+  }
+  #one:checked ~ .catalog__tabs #one-tab,
+  #two:checked ~ .catalog__tabs #two-tab,
+  #three:checked ~ .catalog__tabs #three-tab {
+    color: #fff;
+    background-color: $main_color;
+    border: 2px solid $main_color;
+  }
+}
