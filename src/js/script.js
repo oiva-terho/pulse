@@ -13,3 +13,27 @@ tabs.forEach(tab => tab.addEventListener('click', (e) => {
     }
   }
 }))
+
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 1200) {
+      document.querySelector('.pageup').style.display = "block";
+  } else {
+      document.querySelector('.pageup').style.display = "none";
+  }
+});
+
+document.querySelectorAll("a[href^='#']").forEach(function(link) {
+  link.addEventListener("click", function(event) {
+      event.preventDefault();
+      const href = this.getAttribute("href");
+      const target = document.querySelector(href);
+      const offsetTop = target.offsetTop;
+      
+      window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+      });
+  });
+});
+
+
