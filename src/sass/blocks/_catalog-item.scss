@@ -29,7 +29,6 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    display: block;
     margin-top: 17px;
     color: $main_color;
     font-weight: 500;
@@ -37,6 +36,8 @@
     text-transform: uppercase;
     text-decoration: underline;
     text-align: center;
+    background: none;
+    border:none;
     &:hover {
       color: $main_color;
     }
@@ -108,7 +109,7 @@
         background-color: $main_color;
       }
     }
-    a {
+    button {
       transform: translateX(calc(-50% - 20px));
     }
   }

@@ -55,12 +55,13 @@
   }
   &__panel {
     display: none;
+    grid-template-columns: 1fr 1fr 1fr;
     animation: fadein 0.8s;
   }
   #one:checked ~ .catalog__panels #one-panel,
   #two:checked ~ .catalog__panels #two-panel,
   #three:checked ~ .catalog__panels #three-panel {
-    display: flex;
+    display: grid;
   }
   #one:checked ~ .catalog__tabs #one-tab,
   #two:checked ~ .catalog__tabs #two-tab,
