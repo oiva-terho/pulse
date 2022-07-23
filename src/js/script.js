@@ -1,3 +1,4 @@
+// Tabi item sides switch
 const tabs = document.querySelectorAll('.catalog__panel')
 tabs.forEach(tab => tab.addEventListener('click', (e) => {
   if (e.target.nodeName === 'A') {
@@ -14,6 +15,7 @@ tabs.forEach(tab => tab.addEventListener('click', (e) => {
   }
 }))
 
+// Scroll up arrow
 window.addEventListener("scroll", function() {
   if (window.scrollY > 1200) {
       document.querySelector('.pageup').style.display = "block";
@@ -36,4 +38,14 @@ document.querySelectorAll("a[href^='#']").forEach(function(link) {
   });
 });
 
-
+// Modal windows
+const openConsultationButtons = document.querySelectorAll('[data-modal="consultation"]');
+const consultationModal = document.getElementById('consultation');
+openConsultationButtons.forEach(button => button.addEventListener('click', () => {
+  consultationModal.showModal();
+}))
+consultationModal.addEventListener('click', (e) => {
+  if (!e.target.closest('.modal__wrapper')) {
+    consultationModal.close();
+  }
+})
