@@ -31,7 +31,6 @@ window.addEventListener('scroll', function () {
 
 document.querySelectorAll("a[href^='#']").forEach(function (link) {
   const href = link.getAttribute('href');
-  console.log(href);
   if (href.slice(1) === "1" || "2" || "3") return;
   link.addEventListener('click', function (event) {
     event.preventDefault();
