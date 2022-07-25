@@ -68,7 +68,18 @@ consultationModal.addEventListener('click', e => {
 const openOrderButtons = document.querySelectorAll('.button_cat-item');
 const orderModal = document.getElementById('order');
 openOrderButtons.forEach(button =>
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (e) => {
+    // Add item name to modal
+    const itemName = e.target.parentNode.parentNode.querySelector('.catalog-item__subtitle').innerHTML;
+    orderModal.querySelector('.modal__descr').innerHTML = itemName;
+    // Add item code data to form
+    const itemCode = e.target.parentNode.parentNode.getAttribute('data-item-code');
+    const hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.name = "item-code";
+    hiddenInput.value = itemCode;
+    orderModal.querySelector('form').appendChild(hiddenInput);
+    // open modal and fix scroll
     orderModal.showModal();
     body.style.overflow = 'hidden';
   })
