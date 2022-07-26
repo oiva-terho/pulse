@@ -109,12 +109,14 @@ const errors = {
   phoneLength: 'Неверная длина телефона',
   noEmail: 'Пожалуйста, ввдедите свой e-mail',
   wrongEmail: 'Некорректный email',
+  fetchErr: 'Что-то пошло не так. Попробуйте позже',
 };
 
 const forms = document.getElementsByTagName('form');
 Array.from(forms).forEach(form =>
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const err = form.querySelector('.feed-form_err');
     if (!form.querySelector('[name="name"]').value)
       return (err.innerHTML = errors.noName);
@@ -136,7 +138,47 @@ Array.from(forms).forEach(form =>
     if (!form.querySelector('[name="email"]').value)
       return (err.innerHTML = errors.noEmail);
     err.innerHTML = '';
-    console.log(new FormData(e.target));
-    e.target.reset();
+
+    // Submit form
+    async function handleFetchResult(message) {
+      if (message === '200') {
+        e.target.reset();
+
+        consultationModal.close();
+        orderModal.close();
+        thanksModal.showModal();
+      }
+      if (message === '400') {
+        err.innerHTML = errors.fetchErr;
+      }
+      setTimeout(() => {
+        thanksModal.close();
+      }, 6000);
+    }
+
+    await fetchSubmit(new FormData(form))
+      .then((status) => {
+        handleFetchResult(status);
+      })
+      .catch((error) => {
+        handleFetchResult(error.message);
+      });
+    return;
   })
 );
+
+// Server logic placeholder
+function fetchSubmit(data) {
+  //Here should be backend endpoint for submitting
+  console.log(data);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const randomNumber = Math.random();
+      if (randomNumber < 0.5) {
+        resolve('200');
+      } else {
+        reject(new Error('400'));
+      }
+    }, 2000); // Simulating a delay of 2 seconds
+  });
+}
