@@ -139,8 +139,22 @@ Array.from(forms).forEach(form =>
       return (err.innerHTML = errors.noEmail);
     err.innerHTML = '';
 
+    // Create spinner
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    spinner.id = 'spinner';
+    const spinnerElement = document.createElement('div');
+    spinnerElement.className = 'spinner-element'
+    spinner.appendChild(spinnerElement)
+    console.log(form);
+    // Put spinner instead of the form
+    form.parentNode.appendChild(spinner);
+    form.classList.add('hidden');
+
     // Submit form
     async function handleFetchResult(message) {
+      spinner.parentNode.removeChild(spinner);
+      form.classList.remove('hidden');
       if (message === '200') {
         e.target.reset();
 
