@@ -34,24 +34,17 @@ gulp.task('sass', function () {
     .pipe(autoprefixer())
     .pipe(csso())
     .pipe(size({ title: 'style.css' }))
-    .pipe(gulp.dest('dist/css', { sourcemaps: true }))
+    .pipe(gulp.dest('dist', { sourcemaps: true }))
     .pipe(connect.reload())
-});
-
-// css copy task
-gulp.task('css', function () {
-  return gulp
-    .src('src/css/*.css')
-    .pipe(gulp.dest('dist/css'))
 });
 
 // JavaScript task
 gulp.task('js', function () {
   return gulp
-    .src('src/js/*.js')
+    .src('src/*.js')
     .pipe(GulpUglify())
     .pipe(size({ title: 'script.js' }))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('dist'))
     .pipe(connect.reload())
 });
 
@@ -76,11 +69,11 @@ gulp.task('connect', function () {
 gulp.task('watch', function () {
   gulp.watch(['src/*.html'], gulp.series('html'));
   gulp.watch(['src/sass/**/*.scss'], gulp.series('sass'));
-  gulp.watch(['src/js/*.js'], gulp.series('js'));
+  gulp.watch(['src/*.js'], gulp.series('js'));
 });
 
 // Build
-const build = gulp.series(clear, gulp.parallel('html', 'css', 'sass', 'js', 'assets'));
+const build = gulp.series(clear, gulp.parallel('html', 'sass', 'js', 'assets'));
 
 const dev = gulp.series(build, gulp.parallel('connect', 'watch'));
 
