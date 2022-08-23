@@ -1,0 +1,17 @@
+.consultation {
+    background: url('../img/consultation.jpg') center center/cover no-repeat;
+    padding: 100px 0 108px 0;
+    color: #fff;
+    text-align: left;
+    &__header {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 54px;
+        text-transform: uppercase;
+    }
+    &__subheader {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
