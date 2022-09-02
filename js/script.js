@@ -19,13 +19,69 @@ $(document).ready(function(){
           .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
       });
 
-      $('.catalog-item__link').each(function(i) {
-          $(this).on('click', function(e) {
-              e.preventDefault();
-              $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-              $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-          });
-      });
+    $('.catalog-item__link').each(function(i) {
+        $(this).on('click', function(e) {
+            e.preventDefault();
+            $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
+            $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
+        });
+    });
+
+    async function getResource(url) {
+        let result = await fetch(url);
+        if (!result.ok) {
+            throw new Error(`Could not fetch ${url}. Status ${result.status}`);
+        }
+        return await result.json();
+    }
+
+    class NewCard {
+        constructor (img, title, descr, list, oldPrice, newPrice, parent) {
+            this.img = img;
+            this.title = title;
+            this.descr = descr;
+            this.list = document.createElement('ul');
+            this.oldPrice = oldPrice;
+            this.newPrice = newPrice;
+            this.parent = document.querySelector(parent);
+
+            list.forEach((li) => {this.list.append(document.createElement('li').innerHTML(li));});
+        }
+        render() {
+            const element = document.createElement('div');
+            element.classList.add('catalog-item');
+            element.innerHTML = `
+            <div class="catalog-item__wrapper">
+                <div class="catalog-item__content catalog-item__content_active">
+                    <img src=${this.img} alt=${this.title} class="catalog-item__img">
+                    <div class="catalog-item__subtitle">${this.title}</div>
+                    <div class="catalog-item__descr">${this.descr}</div>
+                    <a href="#" class="catalog-item__link">Подробнее</a>
+                </div>
+                <div class="catalog-item__list">
+                    ${this.list}
+                    <a href="#" class="catalog-item__link">Назад</a>
+                </div>
+            </div>
+            <hr>
+            <div class="catalog-item__footer">
+                <div class="catalog-item__prices">
+                    <div class="catalog-item__old-price">${this.oldPrice} руб.</div>
+                    <div class="catalog-item__price">${this.newPrice} руб.</div>
+                </div>
+                <button class="button button_cat-item">Купить</button>
+            </div>
+            `;
+            this.parent.append(element);
+        }
+    }
+
+    getResource('./data/db.json')
+        .then(data => {
+            data.forEach(({img, title, descr, list, oldPrice, newPrice}) => {
+                new NewCard(img, title, descr, list, oldPrice, newPrice, '.catalog__content').render();n jm.//
+            });
+        });
 
       //Modal windows
     $('[data-modal=consultation]').on('click', function(){

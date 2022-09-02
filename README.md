@@ -1,6 +1,6 @@
 # Pulse
 
-## Landing sample for heart rate monitor promo page
+## Landing page sample
 One of the first educational projects in html and css. Some functionality added by plugins and simple JQuery scripts.
 
 ## Who can use
