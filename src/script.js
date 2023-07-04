@@ -1,4 +1,4 @@
-// Tabi item sides switch
+// Tab item sides switch
 const tabs = document.querySelectorAll('.catalog__panel');
 tabs.forEach(tab =>
   tab.addEventListener('click', e => {
