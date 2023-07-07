@@ -8,11 +8,11 @@ Deploy: https://pulse-oiva.netlify.app/
 ## Features
 
 1. html5 tags like `<section>`, `<header>`, `<footer>`, `<dialog>`
-1. styles based on scss, compiled by gulp
+2. styles based on scss, compiled by gulp
   + uses variables, animations, filestructure, class naming by sections
   + slider in carousel section is realised on pure css
   + tabs in catalog section are realised on pure css
-2. vanilla js controls: 
+3. vanilla js controls: 
   + sided of item card in catalog section
   + apper of back to top arrow and smooth scroll
   + opening of modal windows powered by `<dialog>` element
