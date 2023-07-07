@@ -3,6 +3,8 @@
 It has no dependences, uses pure html, css, js.
 After build can be started from dist folder directly.
 
+Deploy: https://pulse-oiva.netlify.app/
+
 ## Features
 
 1. html5 tags like `<section>`, `<header>`, `<footer>`, `<dialog>`
